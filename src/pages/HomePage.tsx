@@ -1,6 +1,21 @@
 
 
 function HomePage(){
+    const showcaseData = [
+        {
+            bgColor: "bg-red-600",
+        },
+        {
+            bgColor: "bg-blue-600",
+        },
+        {
+            bgColor: "bg-yellow-600",
+        },
+        {
+            bgColor: "bg-green-600",
+        },
+    ]
+
     const characterSectionData = [
         {gameTitle: "Super Mario", bgColor: "bg-blue-200", url: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/en_US/merchandising/Character%20Portals/1600x1600_NCOM_Home_Characters_Mario"},
         {gameTitle: "The Legend of Zelda", bgColor: "bg-yellow-100", url: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/en_US/merchandising/Character%20Portals/The%20Legend%20of%20Zelda/1600x1600_character"},
@@ -313,7 +328,7 @@ function HomePage(){
             header: "Documents and policies",
             categories: ["Health and safety precautions", "Wireless regulatory info", "Supply chain transparency"],
         },
-    ]
+    ];
 
     return(
         <>
@@ -329,9 +344,10 @@ function HomePage(){
                 <div className="bg-blue-200 aspect-[9/10]"></div>
 
                 {/* Slide Preview */}
-                <div className="border-b border-gray-300 flex justify-center gap-3.5 mx-4 py-5">
-                    {Array.from({ length: 5 }).map((_, index) => {
-                        return <div key={index} className="w-12 aspect-square bg-blue-200 rounded-lg"></div>
+                <div className="border-b border-gray-300 flex justify-center items-center gap-3.5 mx-4 py-5">
+                    <div className="flex justify-center items-center h-8 w-8 bg-red-600 rounded-full"><i className='bx bx-pause text-4xl text-white' ></i></div>
+                    {showcaseData.map((game, index) => {
+                        return <div key={index} className={`w-12 aspect-square ${game.bgColor} rounded-lg`}></div>
                     })}
                 </div>
             </section>
@@ -539,13 +555,14 @@ function HomePage(){
 
                 <div className="flex flex-col gap-8 py-12 px-14 tracking-wide">
 
-                    {Array.from({ length: 8 }).map((_, index) => {
+                    {footerData.map((cat, index) => {
                         return <div key={index} className="border-l-1 border-gray-300 flex flex-col gap-4 pl-5">
-                            <h2 className="font-semibold text-gray-800">About Nintendo</h2>
+                            <h2 className="font-semibold text-gray-800">{cat.header}</h2>
 
                             <div className="flex flex-col gap-1.5 text-sm font-bold text-red-600">
-                                <h3>Careers</h3>
-                                <h4>Corporate Social Responsibilty</h4>
+                                {cat.categories.map((subCat, index) => {
+                                    return <h3 key={index}>{subCat}</h3>
+                                })}
                             </div>
                         </div>
                     })}
