@@ -408,12 +408,12 @@ function HomePage(){
             <section className="">
                 {/* Main Slide */}
                 <div className="bg-blue-200 aspect-[9/10]
-                                xl:h-[550px] xl:w-full xl:aspect-[0]
+                                xl:h-[550px] xl:w-full xl:aspect-[0] 2xl:h-[690px]
                 "></div>
 
                 {/* Slide Preview */}
                 <div className="border-b border-gray-300 flex justify-center items-center gap-3.5 mx-4 py-5
-                                md:pb-16 md:gap-6 lg:mx-6 xl:mx-8
+                                md:pb-16 md:gap-6 lg:mx-6 xl:mx-8 2xl:mx-64
                 ">
                     <button className="flex justify-center items-center h-8 w-8 bg-red-600 rounded-full"><i className='bx bx-pause text-4xl text-white' ></i></button>
                     {showcaseData.map((game, index) => {
@@ -424,11 +424,11 @@ function HomePage(){
 
             {/* Featured Section */}
             <section className="border-b border-gray-300 pl-4 py-8
-                                lg:pl-6 lg:py-10 xl:pl-8 xl:py-12
+                                lg:pl-6 lg:py-10 xl:pl-8 xl:py-12 2xl:pl-10
             ">
                 {/* Title */}
                 <h2 className="text-xl font-bold text-gray-600 tracking-wider
-                                md:text-3xl
+                                md:text-3xl 2xl:pl-[216px]
                 ">Featured</h2>
 
                 {/* Featured Games */}
@@ -532,7 +532,7 @@ function HomePage(){
                             return <div key={news.id} className="flex flex-col gap-2
                                                                 md:gap-4
                                     ">     
-                                        <img src={news.url} alt="" className="aspect-[16/9] bg-gray-300 rounded-lg"/>
+                                        <img src={news.url} alt="" className="aspect-[16/9] bg-gray-300 rounded-lg 2xl:rounded-xl"/>
                                         {/* <div className="aspect-[16/9] bg-gray-300 rounded-lg"></div> */}
 
                                         <div className="flex items-center gap-1.5">
@@ -561,7 +561,7 @@ function HomePage(){
                     ">
                         {smallNewsArticlesData.map((news, _) => {
                             return <div key={news.id} className="flex flex-col gap-3">
-                                        <img src={news.url} alt="" className="border border-gray-300 aspect-video bg-gray-300 rounded-lg"/>
+                                        <img src={news.url} alt="" className="border border-gray-300 aspect-video bg-gray-300 rounded-lg 2xl:rounded-xl"/>
                                         {/* <div className="border border-gray-400 aspect-video bg-gray-300 rounded-lg"></div> */}
 
                                         <div className="flex items-center gap-1.5">
@@ -708,7 +708,7 @@ function HomePage(){
                 {/* <div className="flex flex-col gap-8 py-12 px-14 tracking-wide"> */}
 
                     <div className="grid gap-8 px-4
-                                    md:grid-cols-3 xl:grid-cols-6
+                                    md:grid-cols-3 xl:grid-cols-6 2xl:max-w-7xl
                     ">
                         {footerData.map((cat, index) => {
                             return <div key={index} className="border-l-1 border-gray-300 flex flex-col gap-5 pl-5">
@@ -728,7 +728,7 @@ function HomePage(){
                     </div>
 
                     <div className="flex flex-col items-center gap-8 py-12 tracking-wide
-                                    md:gap-12 xl:flex-row xl:justify-between xl:w-full xl:px-5
+                                    md:gap-12 xl:flex-row xl:justify-between xl:w-full xl:px-5 2xl:max-w-7xl
                     ">
                         {/* Social Media Icons */}
                         <div className="flex gap-8 text-4xl text-gray-700">
