@@ -399,7 +399,7 @@ function HomePage(){
                                 }
                             </div>
                         </section>
-                    })}
+            })}
 
             {/* News Section */}
             <section className="border-b border-gray-300 flex flex-col gap-5 px-4 py-8">
