@@ -437,7 +437,7 @@ function HomePage(){
                                         <time className="text-sm text-gray-600 tracking-wider">{news.date}</time>
                                     </div>
 
-                                    <p className="text-sm font-bold text-gray-700 line-clamp-3">{news.subtitle}</p>
+                                    <p className="min-h-[3.75rem] text-sm font-bold text-gray-700 line-clamp-3">{news.subtitle}</p>
 
                                     <button className="border-b-2 border-red-600 w-fit font-bold text-red-600">Read more</button>
                                 </div>
@@ -487,7 +487,7 @@ function HomePage(){
                                             {/* the ^ moves when changing from div to time ??? */}
                                         </div>
 
-                                        <div className={`px-1.5 w-fit text-[10px] font-medium ${game.tagColor} text-white rounded-full`}>{game.tag}</div>
+                                        <div className={`px-1.5 min-h-[1rem] w-fit text-[10px] font-medium ${game.tagColor} text-white rounded-full`}>{game.tag}</div>
 
                                         <p className="text-sm font-semibold text-gray-800">${game.price}</p>
 
@@ -526,7 +526,7 @@ function HomePage(){
                                             <time className="block text-[10px] font-light text-gray-500">{game.date}</time>
                                         </div>
 
-                                        <div className={`px-1.5 w-fit text-[10px] font-medium ${game.tagColor} text-white rounded-full`}>{game.tag}</div>
+                                        <div className={`px-1.5 min-h-[1rem] w-fit text-[10px] font-medium ${game.tagColor} text-white rounded-full`}>{game.tag}</div>
 
                                         <p className="text-sm font-semibold text-gray-800">${game.price}</p>
 
