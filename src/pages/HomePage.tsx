@@ -349,7 +349,7 @@ function HomePage(){
 
                 {/* Slide Preview */}
                 <div className="border-b border-gray-300 flex justify-center items-center gap-3.5 mx-4 py-5
-                                md:pb-16 md:gap-6
+                                md:pb-16 md:gap-6 lg:mx-6
                 ">
                     <button className="flex justify-center items-center h-8 w-8 bg-red-600 rounded-full"><i className='bx bx-pause text-4xl text-white' ></i></button>
                     {showcaseData.map((game, index) => {
@@ -359,14 +359,18 @@ function HomePage(){
             </section>
 
             {/* Featured Section */}
-            <section className="border-b border-gray-300 pl-4 py-8">
+            <section className="border-b border-gray-300 pl-4 py-8
+                                lg:pl-6 lg:py-10
+            ">
                 {/* Title */}
                 <h2 className="text-xl font-bold text-gray-600 tracking-wider
                                 md:text-3xl
                 ">Featured</h2>
 
                 {/* Featured Games */}
-                <div className="flex gap-6 py-5 overflow-x-auto">
+                <div className="flex gap-6 py-5 overflow-x-auto
+                                lg:pl-4
+                ">
                     {featuredSectionData.map((game, index) => {
                         return <div key={index} className="border border-gray-300 w-52 rounded-lg shrink-0
                                                             md:w-64
@@ -400,7 +404,9 @@ function HomePage(){
 
             {/* Red Button Sections */}
             {redButtonData.map((redSection, index) => {
-                return <section key={index} className="border-b border-gray-300 flex flex-col gap-6 px-4 py-8">
+                return <section key={index} className="border-b border-gray-300 flex flex-col gap-6 px-4 py-8
+                                                        lg:px-6 lg:py-10 lg:gap-8
+                ">
                             <div className="flex flex-col gap-4">
                                 <h2 className="text-xl font-bold text-gray-600 tracking-wider
                                                 md:text-3xl
@@ -432,7 +438,9 @@ function HomePage(){
             })}
 
             {/* News Section */}
-            <section className="border-b border-gray-300 flex flex-col gap-5 px-4 py-8">
+            <section className="border-b border-gray-300 flex flex-col gap-5 px-4 py-8
+                                lg:gap-10 lg:px-6 lg:py-10 
+            ">
                 {/* Title */}
                 <h2 className="text-xl font-bold text-gray-600 tracking-wider
                                 md:text-3xl
@@ -504,7 +512,9 @@ function HomePage(){
             </section>
 
             {/* Characters Section */}
-            <section className="border-b border-gray-300 flex flex-col gap-4 px-4 py-8">
+            <section className="border-b border-gray-300 flex flex-col gap-4 px-4 py-8
+                                lg:px-6 lg:py-10
+            ">
                 {/* Title */}
                 <h2 className="text-xl font-bold text-gray-600 tracking-wider
                                md:text-3xl
@@ -525,14 +535,17 @@ function HomePage(){
                 </div>
             </section>
 
-            {/* Best Sellers Section */}
-            <div className="px-4 pt-8 pb-0">
+            {/* Digital Best Sellers Section */}
+            <div className="px-4 pt-8 pb-0
+                            lg:px-6 lg:pt-10
+            ">
                 <div className="flex flex-col gap-2
-                                md:flex-row md:items-center md:gap-8
+                                md:flex-row md:items-center md:gap-4
                 ">
                     <h2 className="text-xl font-bold text-gray-600 tracking-wider
-                                   md:text-3xl
+                                   md:border-r md:border-gray-300 md:pr-4 md:text-3xl 
                     ">Digital Best Sellers</h2>
+                    {/* <div className="text-gray-600">I</div> */}
                     <button className="border-b-2 border-red-600 w-fit text-sm font-semibold text-red-600
                                        md:text-base
                     ">See full list</button>
@@ -546,7 +559,9 @@ function HomePage(){
                                                     md:w-64
                                     " style={{ backgroundImage: `url(${game.url})`}}></div>
 
-                                    <div className="flex flex-col gap-2 p-2 pt-4">
+                                    <div className="flex flex-col gap-2 p-2 pt-4
+                                                    md:p-4
+                                    ">
                                         <div className="h-16">
                                             <h3 className="text-sm font-bold text-gray-700 line-clamp-2
                                                             md:text-base
@@ -599,13 +614,17 @@ function HomePage(){
                 {/* <div className="flex flex-col gap-8 py-12 px-14 tracking-wide"> */}
 
                     <div className="grid gap-8 px-4
-                                    md:grid-cols-3 
+                                    md:grid-cols-3
                     ">
                         {footerData.map((cat, index) => {
                             return <div key={index} className="border-l-1 border-gray-300 flex flex-col gap-5 pl-5">
-                                <h2 className="font-semibold text-gray-800">{cat.header}</h2>
+                                <h2 className="font-semibold text-gray-800
+                                                lg:text-lg
+                                ">{cat.header}</h2>
 
-                                <div className="flex flex-col gap-1.5 text-sm font-bold text-red-600">
+                                <div className="flex flex-col gap-1.5 text-sm font-bold text-red-600
+                                                lg:text-base
+                                ">
                                     {cat.categories.map((subCat, index) => {
                                         return <h3 key={index}>{subCat}</h3>
                                     })}
@@ -629,8 +648,8 @@ function HomePage(){
                 <div className="flex flex-col justify-center items-center gap-8 pt-10 px-16 pb-40 text-[10px] font-light bg-zinc-800 text-gray-100">
                     <div className="text-center">
                         © Nintendo <br className="md:hidden"/>
-                        Games are property of their respective owners <br />
-                        Nintendo of America Inc <br className="md:hidden"/>
+                        Games are property of their respective owners <br className="md:hidden"/>
+                        Nintendo of America Inc <br />
                         Headquarters are in Redmond, Washington, US 
                     </div>
 
@@ -640,7 +659,7 @@ function HomePage(){
                         <p>Terms of Use</p>
                     </div>
 
-                    <p className="text-xs font-semibold text-white">🇺🇸 English (United States)</p>
+                    <p className="text-xs font-medium text-white">🇺🇸 English (United States)</p>
                 </div>
             </footer>
         </>
