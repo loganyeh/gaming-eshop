@@ -14,7 +14,7 @@ function HomePage(){
         {
             bgColor: "bg-green-600",
         },
-    ]
+    ];
 
     const characterSectionData = [
         {gameTitle: "Super Mario", bgColor: "bg-blue-200", url: "https://assets.nintendo.com/image/upload/f_auto/q_auto/dpr_1.5/c_scale,w_300/ncom/en_US/merchandising/Character%20Portals/1600x1600_NCOM_Home_Characters_Mario"},
@@ -334,7 +334,7 @@ function HomePage(){
         <>
             {/* Header */}
             <header className="border-b flex justify-between items-center px-4 py-1.5 bg-red-600 text-white">
-                <div className="border-3 px-1 text-sm font-semibold tracking-wide rounded-full">Nintendo</div>
+                <h1 className="border-3 px-1 text-sm font-semibold tracking-wide rounded-full">Nintendo</h1>
                 <div className="text-2xl">🇺🇸</div>
             </header>
 
@@ -345,7 +345,7 @@ function HomePage(){
 
                 {/* Slide Preview */}
                 <div className="border-b border-gray-300 flex justify-center items-center gap-3.5 mx-4 py-5">
-                    <div className="flex justify-center items-center h-8 w-8 bg-red-600 rounded-full"><i className='bx bx-pause text-4xl text-white' ></i></div>
+                    <button className="flex justify-center items-center h-8 w-8 bg-red-600 rounded-full"><i className='bx bx-pause text-4xl text-white' ></i></button>
                     {showcaseData.map((game, index) => {
                         return <div key={index} className={`w-12 aspect-square ${game.bgColor} rounded-lg`}></div>
                     })}
@@ -367,7 +367,7 @@ function HomePage(){
 
                             {/* Game Info */}
                             <div className="flex flex-col px-2 py-4">
-                                <p className="h-[72px] text-sm font-semibold line-clamp-2">{game.description}</p>
+                                <h3 className="h-[72px] text-sm font-semibold text-gray-800 line-clamp-2">{game.description}</h3>
                                 {/* fix this line-clamp-2 */}
 
                                 <div className="flex flex-col gap-1.5">
@@ -384,22 +384,22 @@ function HomePage(){
             {/* Red Button Sections */}
             {redButtonData.map((redSection, index) => {
                 return <section key={index} className="border-b border-gray-300 flex flex-col gap-6 px-4 py-8">
-                    <div className="flex flex-col gap-4">
-                        <h2 className="text-xl font-bold text-gray-600 tracking-wider">{redSection.title}</h2>
-                        <img src={redSection.url} alt="" className=" object-cover object-center rounded-lg"/>
-                        {/* <div className="aspect-[19/9] bg-gray-300 rounded-lg"></div> */}
-                    </div>
+                            <div className="flex flex-col gap-4">
+                                <h2 className="text-xl font-bold text-gray-600 tracking-wider">{redSection.title}</h2>
+                                <img src={redSection.url} alt="" className="object-cover object-center rounded-lg"/>
+                                {/* <div className="aspect-[19/9] bg-gray-300 rounded-lg"></div> */}
+                            </div>
 
-                    <p className="text-lg font-bold text-gray-600 tracking-wide">{redSection.description}</p>
+                            <p className="text-lg font-bold text-gray-600 tracking-wide">{redSection.description}</p>
 
-                    <div className="flex flex-col gap-4">
-                        <button className="py-2.5 text-lg font-medium text-center bg-red-600 text-white rounded">{redSection.button}</button>
-                        {redSection.finePrint && 
-                            <p className="text-[10px] text-gray-600">{redSection.finePrint}</p>
-                        }
-                    </div>
-                </section>
-            })}
+                            <div className="flex flex-col gap-4">
+                                <button className="py-2.5 text-lg font-medium text-center bg-red-600 text-white rounded">{redSection.button}</button>
+                                {redSection.finePrint && 
+                                    <p className="text-[10px] text-gray-600">{redSection.finePrint}</p>
+                                }
+                            </div>
+                        </section>
+                    })}
 
             {/* News Section */}
             <section className="border-b border-gray-300 flex flex-col gap-5 px-4 py-8">
@@ -409,38 +409,38 @@ function HomePage(){
                 {/* Big News Article */}
                 {bigNewsArticlesData.map((news, _) => {
                     return <div key={news.id} className="flex flex-col gap-2">     
-                        <img src={news.url} alt="" className="aspect-[16/9] bg-gray-300 rounded-lg"/>
-                        {/* <div className="aspect-[16/9] bg-gray-300 rounded-lg"></div> */}
+                                <img src={news.url} alt="" className="aspect-[16/9] bg-gray-300 rounded-lg"/>
+                                {/* <div className="aspect-[16/9] bg-gray-300 rounded-lg"></div> */}
 
-                        <div className="flex items-center gap-1.5">
-                            <i className='bx bx-plus-medical text-2xl text-red-600' ></i>
-                            <time className="text-sm text-gray-600 tracking-wider">{news.date}</time>
-                        </div>
+                                <div className="flex items-center gap-1.5">
+                                    <i className='bx bx-plus-medical text-2xl text-red-600' ></i>
+                                    <time className="text-sm text-gray-600 tracking-wider">{news.date}</time>
+                                </div>
 
-                        <div className="text-base font-bold text-gray-700 tracking-wide line-clamp-2">{news.subtitle}</div>
+                                <p className="text-base font-bold text-gray-700 tracking-wide line-clamp-2">{news.subtitle}</p>
 
-                        <div className="text-sm text-gray-600 tracking-wide line-clamp-2">{news.description}</div>
+                                <p className="text-sm text-gray-600 tracking-wide line-clamp-2">{news.description}</p>
 
-                        <button className="border-b-2 border-red-600 w-fit font-bold text-red-600">Read more</button>
-                    </div>
+                                <button className="border-b-2 border-red-600 w-fit font-bold text-red-600">Read more</button>
+                            </div>
                 })}
 
                 {/* Small News Article */}
                 <div className="grid grid-cols-2 gap-8">
                     {smallNewsArticlesData.map((news, _) => {
                         return <div key={news.id} className="flex flex-col gap-3">
-                            <img src={news.url} alt="" className="border border-gray-300 aspect-video bg-gray-300 rounded-lg"/>
-                            {/* <div className="border border-gray-400 aspect-video bg-gray-300 rounded-lg"></div> */}
+                                    <img src={news.url} alt="" className="border border-gray-300 aspect-video bg-gray-300 rounded-lg"/>
+                                    {/* <div className="border border-gray-400 aspect-video bg-gray-300 rounded-lg"></div> */}
 
-                            <div className="flex items-center gap-1.5">
-                                <i className={news.boxicon} ></i>
-                                <time className="text-sm text-gray-600 tracking-wider">{news.date}</time>
-                            </div>
+                                    <div className="flex items-center gap-1.5">
+                                        <i className={news.boxicon} ></i>
+                                        <time className="text-sm text-gray-600 tracking-wider">{news.date}</time>
+                                    </div>
 
-                            <p className="text-sm font-bold text-gray-700 line-clamp-3">{news.subtitle}</p>
+                                    <p className="text-sm font-bold text-gray-700 line-clamp-3">{news.subtitle}</p>
 
-                            <button className="border-b-2 border-red-600 w-fit font-bold text-red-600">Read more</button>
-                        </div>
+                                    <button className="border-b-2 border-red-600 w-fit font-bold text-red-600">Read more</button>
+                                </div>
                     })}
                 </div>
 
@@ -459,10 +459,10 @@ function HomePage(){
                 <div className="grid grid-cols-2 gap-5">
                     {characterSectionData.map((character, index) => {
                         return <div key={index} className="flex flex-col gap-2">
-                            <img src={character.url} alt="" className={`border border-gray-100 ${character.bgColor} rounded-lg`} />
-                            {/* <div className="border border-gray-400 aspect-square bg-gray-300 rounded-lg"></div> */}
-                            <h3 className="text-lg font-bold text-gray-800 tracking-wide">{character.gameTitle}</h3>
-                        </div>
+                                    <img src={character.url} alt="" className={`border border-gray-100 ${character.bgColor} rounded-lg`} />
+                                    {/* <div className="border border-gray-400 aspect-square bg-gray-300 rounded-lg"></div> */}
+                                    <h3 className="text-lg font-bold text-gray-800 tracking-wide">{character.gameTitle}</h3>
+                                </div>
                     })}
                 </div>
             </section>
@@ -478,29 +478,29 @@ function HomePage(){
                 <div className="flex gap-8 pt-8 pb-6 pl-5 overflow-x-auto">
                     {bestSellersData.map((game, _) => {
                         return <div key={game.id} className="border border-gray-300 rounded-lg">
-                            <div className="w-52 aspect-square bg-gray-300 bg-center bg-cover rounded-t-lg" style={{ backgroundImage: `url(${game.url})`}}></div>
+                                    <div className="w-52 aspect-square bg-gray-300 bg-center bg-cover rounded-t-lg" style={{ backgroundImage: `url(${game.url})`}}></div>
 
-                            <div className="flex flex-col gap-2 p-2 pt-4">
+                                    <div className="flex flex-col gap-2 p-2 pt-4">
+                                        <div className="h-16">
+                                            <h3 className="text-sm font-bold text-gray-700 line-clamp-2">{game.gameTitle}</h3>
+                                            <time className="block text-[10px] font-light text-gray-500">{game.date}</time>
+                                            {/* the ^ moves when changing from div to time ??? */}
+                                        </div>
 
-                                <div className="h-16">
-                                    <div className="text-sm font-bold text-gray-700 line-clamp-2">{game.gameTitle}</div>
-                                    <div className="text-[10px] font-light text-gray-500">{game.date}</div>
-                                </div>
+                                        <div className={`px-1.5 w-fit text-[10px] font-medium ${game.tagColor} text-white rounded-full`}>{game.tag}</div>
 
-                                <div className={`px-1.5 w-fit text-[10px] font-medium ${game.tagColor} text-white rounded-full`}>{game.tag}</div>
+                                        <p className="text-sm font-semibold text-gray-800">${game.price}</p>
 
-                                <div className="text-sm font-semibold text-gray-800">${game.price}</div>
+                                        <div className="flex justify-between items-end">
+                                            <div className="flex justify-between items-center gap-1 text-gray-700">
+                                                <i className='bx bx-plus-medical' ></i>
+                                                <div className="text-[10px]">Games</div>
+                                            </div>
 
-                                <div className="flex justify-between items-end">
-                                    <div className="flex justify-between items-center gap-1 text-gray-700">
-                                        <i className='bx bx-plus-medical' ></i>
-                                        <div className="text-[10px]">Games</div>
+                                            <i className='bx bx-heart text-2xl text-red-600' ></i>
+                                        </div>
                                     </div>
-
-                                    <i className='bx bx-heart text-2xl text-red-600' ></i>
                                 </div>
-                            </div>
-                        </div>
                     })}
 
                 </div>
@@ -518,29 +518,28 @@ function HomePage(){
                 <div className="flex gap-8 pt-8 pb-6 pl-5 overflow-x-auto">
                     {newReleasesData.map((game, _) => {
                         return <div key={game.id} className="border border-gray-300 rounded-lg">
-                            <div className="w-52 aspect-square bg-gray-300 bg-center bg-cover rounded-t-lg" style={{ backgroundImage: `url(${game.url})`}}></div>
+                                    <div className="w-52 aspect-square bg-gray-300 bg-center bg-cover rounded-t-lg" style={{ backgroundImage: `url(${game.url})`}}></div>
 
-                            <div className="flex flex-col gap-2 p-2 pt-4">
+                                    <div className="flex flex-col gap-2 p-2 pt-4">
+                                        <div className="h-16">
+                                            <h3 className="text-sm font-bold text-gray-700 line-clamp-2">{game.gameTitle}</h3>
+                                            <time className="block text-[10px] font-light text-gray-500">{game.date}</time>
+                                        </div>
 
-                                <div className="h-16">
-                                    <div className="text-sm font-bold text-gray-700 line-clamp-2">{game.gameTitle}</div>
-                                    <div className="text-[10px] font-light text-gray-500">{game.date}</div>
-                                </div>
+                                        <div className={`px-1.5 w-fit text-[10px] font-medium ${game.tagColor} text-white rounded-full`}>{game.tag}</div>
 
-                                <div className={`px-1.5 w-fit text-[10px] font-medium ${game.tagColor} text-white rounded-full`}>{game.tag}</div>
+                                        <p className="text-sm font-semibold text-gray-800">${game.price}</p>
 
-                                <div className="text-sm font-semibold text-gray-800">${game.price}</div>
+                                        <div className="flex justify-between items-end">
+                                            <div className="flex justify-between items-center gap-1 text-gray-700">
+                                                <i className='bx bx-plus-medical' ></i>
+                                                <div className="text-[10px]">Games</div>
+                                            </div>
 
-                                <div className="flex justify-between items-end">
-                                    <div className="flex justify-between items-center gap-1 text-gray-700">
-                                        <i className='bx bx-plus-medical' ></i>
-                                        <div className="text-[10px]">Games</div>
+                                            <i className='bx bx-heart text-2xl text-red-600' ></i>
+                                        </div>
                                     </div>
-
-                                    <i className='bx bx-heart text-2xl text-red-600' ></i>
                                 </div>
-                            </div>
-                        </div>
                     })}
 
                 </div>
@@ -556,7 +555,7 @@ function HomePage(){
                 <div className="flex flex-col gap-8 py-12 px-14 tracking-wide">
 
                     {footerData.map((cat, index) => {
-                        return <div key={index} className="border-l-1 border-gray-300 flex flex-col gap-4 pl-5">
+                        return <div key={index} className="border-l-1 border-gray-300 flex flex-col gap-5 pl-5">
                             <h2 className="font-semibold text-gray-800">{cat.header}</h2>
 
                             <div className="flex flex-col gap-1.5 text-sm font-bold text-red-600">
@@ -568,7 +567,7 @@ function HomePage(){
                     })}
 
                     {/* Social Media Icons */}
-                    <div className="flex justify-between text-4xl text-gray-700">
+                    <div className="flex justify-around text-4xl text-gray-700">
                         <i className='bx bxl-facebook-circle' ></i>
                         <i className='bx bxl-instagram' ></i>
                         <i className='bx bxl-twitter' ></i>
@@ -589,12 +588,12 @@ function HomePage(){
                     </div>
 
                     <div className="flex gap-4">
-                        <div>Contact Us</div>
-                        <div>Website feedback</div>
-                        <div>Terms of Use</div>
+                        <p>Contact Us</p>
+                        <p>Website feedback</p>
+                        <p>Terms of Use</p>
                     </div>
 
-                    <div className="text-xs font-semibold text-white">🇺🇸 English (United States)</div>
+                    <p className="text-xs font-semibold text-white">🇺🇸 English (United States)</p>
                 </div>
             </footer>
         </>
