@@ -407,11 +407,13 @@ function HomePage(){
             {/* Game Showcase */}
             <section className="">
                 {/* Main Slide */}
-                <div className="bg-blue-200 aspect-[9/10]"></div>
+                <div className="bg-blue-200 aspect-[9/10]
+                                xl:h-[550px] xl:w-full xl:aspect-[0]
+                "></div>
 
                 {/* Slide Preview */}
                 <div className="border-b border-gray-300 flex justify-center items-center gap-3.5 mx-4 py-5
-                                md:pb-16 md:gap-6 lg:mx-6
+                                md:pb-16 md:gap-6 lg:mx-6 xl:mx-8
                 ">
                     <button className="flex justify-center items-center h-8 w-8 bg-red-600 rounded-full"><i className='bx bx-pause text-4xl text-white' ></i></button>
                     {showcaseData.map((game, index) => {
@@ -422,7 +424,7 @@ function HomePage(){
 
             {/* Featured Section */}
             <section className="border-b border-gray-300 pl-4 py-8
-                                lg:pl-6 lg:py-10
+                                lg:pl-6 lg:py-10 xl:pl-8 xl:py-12
             ">
                 {/* Title */}
                 <h2 className="text-xl font-bold text-gray-600 tracking-wider
@@ -431,7 +433,7 @@ function HomePage(){
 
                 {/* Featured Games */}
                 <div className="flex gap-6 py-5 overflow-x-auto
-                                lg:pl-4
+                                lg:pl-4 xl:pl-0
                 ">
                     {featuredSectionData.map((game, index) => {
                         return <div key={index} className="border border-gray-300 w-52 rounded-lg shrink-0
@@ -466,197 +468,227 @@ function HomePage(){
 
             {/* Red Button Sections */}
             {redButtonData.map((redSection, index) => {
-                return <section key={index} className="border-b border-gray-300 flex flex-col gap-6 px-4 py-8
-                                                        lg:px-6 lg:py-10 lg:gap-8
+                return <section key={index} className="border-b border-gray-300 flex justify-center px-4 py-8
+                                                        lg:px-6 lg:py-10 xl:px-8 xl:py-12
                 ">
-                            <div className="flex flex-col gap-4">
-                                <h2 className="text-xl font-bold text-gray-600 tracking-wider
-                                                md:text-3xl
-                                ">{redSection.title}</h2>
-                                <img src={redSection.urlMobile} alt="" className="object-cover object-center rounded-lg
-                                                                                    md:hidden
-                                "/>
-                                <img src={redSection.urlMD} alt="" className="hidden object-cover object-center rounded-lg
-                                                                                md:block
-                                "/>
-                                {/* <div className="aspect-[19/9] bg-gray-300 rounded-lg"></div> */}
-                            </div>
+                            <div className="flex flex-col gap-6 w-full max-w-6xl
+                                            xl:gap-10
+                            ">
+                                <div className="flex flex-col gap-4
+                                                xl:gap-10
+                                ">
+                                    <h2 className="text-xl font-bold text-gray-600 tracking-wider
+                                                    md:text-3xl
+                                    ">{redSection.title}</h2>
+                                    <img src={redSection.urlMobile} alt="" className="object-cover object-center rounded-lg
+                                                                                        md:hidden
+                                    "/>
+                                    <img src={redSection.urlMD} alt="" className="hidden object-cover object-center rounded-lg
+                                                                                    md:block
+                                    "/>
+                                    {/* <div className="aspect-[19/9] bg-gray-300 rounded-lg"></div> */}
+                                </div>
 
-                            <p className="text-lg font-bold text-gray-600 tracking-wide
-                                          md:text-xl
-                            ">{redSection.description}</p>
+                                <div className="flex flex-col gap-6
+                                                xl:flex-row xl:items-center
+                                ">
+                                    <p className="text-lg font-bold text-gray-600 tracking-wide
+                                                md:text-xl
+                                    ">{redSection.description}</p>
 
-                            <div className="flex flex-col gap-4">
-                                <button className="py-2.5 text-lg font-medium text-center bg-red-600 text-white rounded
-                                                    md:text-xl
-                                ">{redSection.button}</button>
+                                    <button className="py-2.5 text-lg font-medium text-center bg-red-600 text-white rounded
+                                                        md:text-xl xl:px-5 xl:shrink-0 xl:rounded-lg
+                                    ">{redSection.button}</button>
+                                </div>
+
                                 {redSection.finePrint && 
                                     <p className="text-[10px] text-gray-600
-                                                  md:text-xs
+                                                md:text-xs
                                     ">{redSection.finePrint}</p>
                                 }
                             </div>
+
                         </section>
             })}
 
             {/* News Section */}
-            <section className="border-b border-gray-300 flex flex-col gap-5 px-4 py-8
-                                lg:gap-10 lg:px-6 lg:py-10 
+            <section className="border-b border-gray-300 flex justify-center px-4 py-8 w-full
+                                lg:px-6 lg:py-10 xl:py-12
             ">
-                {/* Title */}
-                <h2 className="text-xl font-bold text-gray-600 tracking-wider
-                                md:text-3xl
-                ">News</h2>
-
-                {/* Big News Article */}
-                <div className="grid gap-5
-                                md:grid-cols-2 md:gap-8
+                
+                <div className="flex flex-col gap-5 max-w-6xl
+                                lg:gap-10
                 ">
-                    {bigNewsArticlesData.map((news, _) => {
-                        return <div key={news.id} className="flex flex-col gap-2
-                                                            md:gap-4
-                                ">     
-                                    <img src={news.url} alt="" className="aspect-[16/9] bg-gray-300 rounded-lg"/>
-                                    {/* <div className="aspect-[16/9] bg-gray-300 rounded-lg"></div> */}
+                    {/* Title */}
+                    <h2 className="text-xl font-bold text-gray-600 tracking-wider
+                                    md:text-3xl
+                    ">News</h2>
 
-                                    <div className="flex items-center gap-1.5">
-                                        <i className='bx bx-plus-medical text-2xl text-red-600' ></i>
-                                        <time className="text-sm text-gray-600 tracking-wider
-                                                        md:text-base
-                                        ">{news.date}</time>
+                    {/* Big News Article */}
+                    <div className="grid gap-5
+                                    md:grid-cols-2 md:gap-8
+                    ">
+                        {bigNewsArticlesData.map((news, _) => {
+                            return <div key={news.id} className="flex flex-col gap-2
+                                                                md:gap-4
+                                    ">     
+                                        <img src={news.url} alt="" className="aspect-[16/9] bg-gray-300 rounded-lg"/>
+                                        {/* <div className="aspect-[16/9] bg-gray-300 rounded-lg"></div> */}
+
+                                        <div className="flex items-center gap-1.5">
+                                            <i className='bx bx-plus-medical text-2xl text-red-600' ></i>
+                                            <time className="text-sm text-gray-600 tracking-wider
+                                                            md:text-base
+                                            ">{news.date}</time>
+                                        </div>
+
+                                        <p className="text-base font-bold text-gray-700 tracking-wide line-clamp-2
+                                                    md:text-lg
+                                        ">{news.subtitle}</p>
+
+                                        <p className="text-sm text-gray-600 tracking-wide line-clamp-2
+                                                    md:text-base
+                                        ">{news.description}</p>
+
+                                        <button className="border-b-2 border-red-600 w-fit font-bold text-red-600">Read more</button>
                                     </div>
+                        })}
+                    </div>
 
-                                    <p className="text-base font-bold text-gray-700 tracking-wide line-clamp-2
-                                                  md:text-lg
-                                    ">{news.subtitle}</p>
+                    {/* Small News Article */}
+                    <div className="grid grid-cols-2 gap-8
+                                    md:grid-cols-4
+                    ">
+                        {smallNewsArticlesData.map((news, _) => {
+                            return <div key={news.id} className="flex flex-col gap-3">
+                                        <img src={news.url} alt="" className="border border-gray-300 aspect-video bg-gray-300 rounded-lg"/>
+                                        {/* <div className="border border-gray-400 aspect-video bg-gray-300 rounded-lg"></div> */}
 
-                                    <p className="text-sm text-gray-600 tracking-wide line-clamp-2
-                                                  md:text-base
-                                    ">{news.description}</p>
+                                        <div className="flex items-center gap-1.5">
+                                            <i className={news.boxicon} ></i>
+                                            <time className="text-sm text-gray-600 tracking-wider
+                                                            md:text-base
+                                            ">{news.date}</time>
+                                        </div>
 
-                                    <button className="border-b-2 border-red-600 w-fit font-bold text-red-600">Read more</button>
-                                </div>
-                    })}
-                </div>
+                                        <p className="min-h-[3.75rem] text-sm font-bold text-gray-700 line-clamp-3
+                                                    md:text-base
+                                        ">{news.subtitle}</p>
 
-                {/* Small News Article */}
-                <div className="grid grid-cols-2 gap-8
-                                md:grid-cols-4
-                ">
-                    {smallNewsArticlesData.map((news, _) => {
-                        return <div key={news.id} className="flex flex-col gap-3">
-                                    <img src={news.url} alt="" className="border border-gray-300 aspect-video bg-gray-300 rounded-lg"/>
-                                    {/* <div className="border border-gray-400 aspect-video bg-gray-300 rounded-lg"></div> */}
-
-                                    <div className="flex items-center gap-1.5">
-                                        <i className={news.boxicon} ></i>
-                                        <time className="text-sm text-gray-600 tracking-wider
-                                                         md:text-base
-                                        ">{news.date}</time>
+                                        <button className="border-b-2 border-red-600 w-fit font-bold text-red-600">Read more</button>
                                     </div>
+                        })}
+                    </div>
 
-                                    <p className="min-h-[3.75rem] text-sm font-bold text-gray-700 line-clamp-3
-                                                  md:text-base
-                                    ">{news.subtitle}</p>
+                    <button className="border flex justify-center items-center gap-4 py-2.5 bg-red-600 text-white rounded-lg
+                                        xl:px-5 xl:w-fit
+                    ">
+                        <i className='bx bxs-comment-detail text-xl
+                                    md:text-2xl
+                        ' ></i>
+                        <p className="text-lg font-medium tracking-wide">See all news articles</p>
+                    </button>
 
-                                    <button className="border-b-2 border-red-600 w-fit font-bold text-red-600">Read more</button>
-                                </div>
-                    })}
                 </div>
-
-                <button className="border flex justify-center items-center gap-4 py-2.5 bg-red-600 text-white rounded-lg">
-                    <i className='bx bxs-comment-detail text-xl
-                                  md:text-2xl
-                    ' ></i>
-                    <p className="text-lg font-medium tracking-wide">See all news articles</p>
-                </button>
 
             </section>
 
             {/* Characters Section */}
-            <section className="border-b border-gray-300 flex flex-col gap-4 px-4 py-8
-                                lg:px-6 lg:py-10
+            <section className="border-b border-gray-300 flex justify-center px-4 py-8 w-full
+                                lg:px-6 lg:py-10 xl:py-12
             ">
-                {/* Title */}
-                <h2 className="text-xl font-bold text-gray-600 tracking-wider
-                               md:text-3xl
-                ">Characters</h2>
-                
-                <div className="grid grid-cols-2 gap-5
-                                md:grid-cols-4
-                ">
-                    {characterSectionData.map((character, index) => {
-                        return <div key={index} className="flex flex-col gap-2">
-                                    <img src={character.url} alt="" className={`border border-gray-100 ${character.bgColor} rounded-lg`} />
-                                    {/* <div className="border border-gray-400 aspect-square bg-gray-300 rounded-lg"></div> */}
-                                    <h3 className="text-lg font-bold text-gray-800 tracking-wide
-                                                   md:text-xl
-                                    ">{character.gameTitle}</h3>
-                                </div>
-                    })}
+
+                <div className="flex flex-col gap-4 max-w-6xl">
+                    {/* Title */}
+                    <h2 className="text-xl font-bold text-gray-600 tracking-wider
+                                md:text-3xl
+                    ">Characters</h2>
+                    
+                    <div className="grid grid-cols-2 gap-5
+                                    md:grid-cols-4
+                    ">
+                        {characterSectionData.map((character, index) => {
+                            return <div key={index} className="flex flex-col gap-2">
+                                        <img src={character.url} alt="" className={`border border-gray-100 ${character.bgColor} rounded-lg
+                                                                                    xl:rounded-2xl
+                                        `} />
+                                        {/* <div className="border border-gray-400 aspect-square bg-gray-300 rounded-lg"></div> */}
+                                        <h3 className="text-lg font-bold text-gray-800 tracking-wide
+                                                    md:text-xl
+                                        ">{character.gameTitle}</h3>
+                                    </div>
+                        })}
+                    </div>
+
                 </div>
+
             </section>
 
             {/* Digital Best Sellers Section */}
-            <div className="px-4 pt-8 pb-0
-                            lg:px-6 lg:pt-10
-            ">
-                <div className="flex flex-col gap-2
-                                md:flex-row md:items-center md:gap-4
+            <div className="flex justify-center w-full">
+                <div className="px-4 pt-8 pb-0
+                                lg:px-6 lg:pt-10 xl:max-w-6xl xl:px-0 xl:pt-12
                 ">
-                    <h2 className="text-xl font-bold text-gray-600 tracking-wider
-                                   md:border-r md:border-gray-300 md:pr-4 md:text-3xl 
-                    ">Digital Best Sellers</h2>
-                    {/* <div className="text-gray-600">I</div> */}
-                    <button className="border-b-2 border-red-600 w-fit text-sm font-semibold text-red-600
-                                       md:text-base
-                    ">See full list</button>
-                </div>
+                    <div className="flex flex-col gap-2
+                                    md:flex-row md:items-center md:gap-4
+                    ">
+                        <h2 className="text-xl font-bold text-gray-600 tracking-wider
+                                    md:border-r md:border-gray-300 md:pr-4 md:text-3xl 
+                        ">Digital Best Sellers</h2>
+                        {/* <div className="text-gray-600">I</div> */}
+                        <button className="border-b-2 border-red-600 w-fit text-sm font-semibold text-red-600
+                                        md:text-base
+                        ">See full list</button>
+                    </div>
 
-                {/* Game Slideshow */}
-                <div className="flex gap-8 pt-8 pb-6 pl-5 overflow-x-auto">
-                    {bestSellersData.map((game, _) => {
-                        return <div key={game.id} className="border border-gray-300 rounded-lg">
-                                    <div className="w-52 aspect-square bg-gray-300 bg-center bg-cover rounded-t-lg
-                                                    md:w-64
-                                    " style={{ backgroundImage: `url(${game.url})`}}></div>
+                    {/* Game Slideshow */}
+                    <div className="flex gap-8 pt-8 pb-6 pl-5 overflow-x-auto
+                                    xl:pl-8
+                    ">
+                        {bestSellersData.map((game, _) => {
+                            return <div key={game.id} className="border border-gray-300 rounded-lg">
+                                        <div className="w-52 aspect-square bg-gray-300 bg-center bg-cover rounded-t-lg
+                                                        md:w-64
+                                        " style={{ backgroundImage: `url(${game.url})`}}></div>
 
-                                    <div className="flex flex-col gap-2 p-2 pt-4
-                                                    md:p-4
-                                    ">
-                                        <div className="h-16">
-                                            <h3 className="text-sm font-bold text-gray-700 line-clamp-2
-                                                            md:text-base
-                                            ">{game.gameTitle}</h3>
-                                            <time className="block text-[10px] font-light text-gray-500
-                                                            md:text-xs
-                                            ">{game.date}</time>
-                                            {/* the ^ moves when changing from div to time ??? */}
-                                        </div>
-
-                                        <div className={`px-1.5 min-h-[1rem] w-fit text-[10px] font-medium ${game.tagColor} text-white rounded-full
-                                                        md:text-xs md:px-2 md:py-0.5
-                                        `}>{game.tag}</div>
-
-                                        <p className="text-sm font-semibold text-gray-800
-                                                      md:text-base
-                                        ">${game.price}</p>
-
-                                        <div className="flex justify-between items-end">
-                                            <div className="flex justify-between items-center gap-1 text-gray-700">
-                                                <i className='bx bx-plus-medical' ></i>
-                                                <div className="text-[10px]
+                                        <div className="flex flex-col gap-2 p-2 pt-4
+                                                        md:p-4
+                                        ">
+                                            <div className="h-16">
+                                                <h3 className="text-sm font-bold text-gray-700 line-clamp-2
+                                                                md:text-base
+                                                ">{game.gameTitle}</h3>
+                                                <time className="block text-[10px] font-light text-gray-500
                                                                 md:text-xs
-                                                ">Games</div>
+                                                ">{game.date}</time>
+                                                {/* the ^ moves when changing from div to time ??? */}
                                             </div>
 
-                                            <i className='bx bx-heart text-2xl text-red-600
-                                                          md:text-3xl
-                                            ' ></i>
+                                            <div className={`px-1.5 min-h-[1rem] w-fit text-[10px] font-medium ${game.tagColor} text-white rounded-full
+                                                            md:text-xs md:px-2 md:py-0.5
+                                            `}>{game.tag}</div>
+
+                                            <p className="text-sm font-semibold text-gray-800
+                                                        md:text-base
+                                            ">${game.price}</p>
+
+                                            <div className="flex justify-between items-end">
+                                                <div className="flex justify-between items-center gap-1 text-gray-700">
+                                                    <i className='bx bx-plus-medical' ></i>
+                                                    <div className="text-[10px]
+                                                                    md:text-xs
+                                                    ">Games</div>
+                                                </div>
+
+                                                <i className='bx bx-heart text-2xl text-red-600
+                                                            md:text-3xl
+                                                ' ></i>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                    })}
+                        })}
+
+                    </div>
 
                 </div>
 
@@ -671,47 +703,54 @@ function HomePage(){
                 </div>
 
                 <div className="flex flex-col items-center gap-8 py-12 tracking-wide
-                                md:gap-12
+                                md:gap-12 xl:pb-0
                 ">
                 {/* <div className="flex flex-col gap-8 py-12 px-14 tracking-wide"> */}
 
                     <div className="grid gap-8 px-4
-                                    md:grid-cols-3
+                                    md:grid-cols-3 xl:grid-cols-6
                     ">
                         {footerData.map((cat, index) => {
                             return <div key={index} className="border-l-1 border-gray-300 flex flex-col gap-5 pl-5">
-                                <h2 className="font-semibold text-gray-800
-                                                lg:text-lg
-                                ">{cat.header}</h2>
+                                        <h2 className="font-semibold text-gray-800
+                                                        lg:text-lg
+                                        ">{cat.header}</h2>
 
-                                <div className="flex flex-col gap-1.5 text-sm font-bold text-red-600
-                                                lg:text-base
-                                ">
-                                    {cat.categories.map((subCat, index) => {
-                                        return <h3 key={index}>{subCat}</h3>
-                                    })}
-                                </div>
-                            </div>
+                                        <div className="flex flex-col gap-1.5 text-sm font-bold text-red-600
+                                                        lg:text-base
+                                        ">
+                                            {cat.categories.map((subCat, index) => {
+                                                return <h3 key={index}>{subCat}</h3>
+                                            })}
+                                        </div>
+                                    </div>
                         })}
                     </div>
 
-                    {/* Social Media Icons */}
-                    <div className="flex gap-8 text-4xl text-gray-700">
-                        <i className='bx bxl-facebook-circle' ></i>
-                        <i className='bx bxl-instagram' ></i>
-                        <i className='bx bxl-twitter' ></i>
-                        <i className='bx bxl-youtube' ></i>
-                    </div>
+                    <div className="flex flex-col items-center gap-8 py-12 tracking-wide
+                                    md:gap-12 xl:flex-row xl:justify-between xl:w-full xl:px-5
+                    ">
+                        {/* Social Media Icons */}
+                        <div className="flex gap-8 text-4xl text-gray-700">
+                            <i className='bx bxl-facebook-circle' ></i>
+                            <i className='bx bxl-instagram' ></i>
+                            <i className='bx bxl-twitter' ></i>
+                            <i className='bx bxl-youtube' ></i>
+                        </div>
 
-                    <img src="https://caru.bbbprograms.org/seal/GetSeal/1514703882" alt="Place ad here" className="w-48"/>
+                        {/* Ad */}
+                        <img src="https://caru.bbbprograms.org/seal/GetSeal/1514703882" alt="Place ad here" className="w-48"/>
+                    </div>
 
                 </div>
 
-                <div className="flex flex-col justify-center items-center gap-8 pt-10 px-16 pb-40 text-[10px] font-light bg-zinc-800 text-gray-100">
+                <div className="flex flex-col justify-center items-center gap-8 pt-10 px-16 pb-40 text-[10px] font-light bg-zinc-800 text-gray-100
+                                xl:flex-row xl:gap-16 xl:px-0 xl:py-8 xl:text-xs
+                ">
                     <div className="text-center">
                         © Nintendo <br className="md:hidden"/>
                         Games are property of their respective owners <br className="md:hidden"/>
-                        Nintendo of America Inc <br />
+                        Nintendo of America Inc <br className="xl:hidden"/>
                         Headquarters are in Redmond, Washington, US 
                     </div>
 
