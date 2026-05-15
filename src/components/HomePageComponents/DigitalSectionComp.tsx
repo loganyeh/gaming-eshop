@@ -10,7 +10,7 @@ function DigitalSectionComp({ data, title }: DigitalProp ){
     return(
         <>
             <div className="flex justify-center w-full">
-                <div className="px-4 pt-8 pb-0
+                <div className="px-4 pt-8 pb-0 overflow-x-auto
                                 lg:px-6 lg:pt-10 xl:max-w-6xl xl:px-0 xl:pt-12
                 ">
                     <div className="flex flex-col gap-2
