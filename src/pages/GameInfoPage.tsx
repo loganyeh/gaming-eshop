@@ -49,7 +49,7 @@ function GameInfoPage(){
         <>
             <Header data={headerData} />
 
-            {/* Shipping */}
+            {/* Shipping Header */}
             <section className="flex justify-center py-4 text-xs text-center bg-gray-100 text-gray-700 tracking-wide">
                 <p className="font-light">
                     <span className="font-semibold">Free shipping</span> on orders $50 or more. <span className="font-semibold underline">Restrictions<br /> apply.</span>
@@ -65,22 +65,25 @@ function GameInfoPage(){
                 <p className="text-gray-600">Stardew Valley</p>
             </section>
 
-            <img src="/bestSellersImages/stardewvalley.avif" alt="" className="object-cover object-center aspect-video"/>
+            {/* Game Image Slideshow */}
+            <section className="">
+                <img src="/bestSellersImages/stardewvalley.avif" alt="" className="object-cover object-center aspect-video"/>
 
-            {/* Game Preview Images */}
-            <div className="flex gap-3 px-1 py-2 overflow-x-auto scroll-smooth">
-                {Array.from({ length: 8}).map((_, index) => {
-                    return <div key={index} className="h-10 aspect-video bg-blue-300 rounded-lg">
+                {/* Game Preview Images */}
+                <div className="flex gap-3 px-1 py-2 overflow-x-auto scroll-smooth">
+                    {Array.from({ length: 8}).map((_, index) => {
+                        return <div key={index} className="h-10 aspect-video bg-blue-300 rounded-lg">
 
-                            </div>
-                })}
-            </div>
+                                </div>
+                    })}
+                </div>
+            </section>
 
             {/* Game Description */}
             <section className="flex flex-col gap-4 p-4 py-6 shadow-lg">
                 <h2 className="text-xl font-semibold text-gray-800 tracking-wide">Stardew Valley</h2>
 
-                 <p className="text-xs font-semibold text-gray-800">Select a verion</p>
+                 <p className="text-xs font-semibold text-gray-800">Select a version</p>
                  
                  {/* Game Version */}
                  <div className="flex flex-wrap gap-3 ">
@@ -137,7 +140,7 @@ function GameInfoPage(){
             </section>
 
             {/* Game Blurb */}
-            <section className="flex flex-col gap-5 px-4 py-16">
+            <section className="flex flex-col gap-5 px-4 pt-16 pb-14">
                 <div className="flex flex-col gap-3">
                     <p className="text-lg font-bold text-gray-700 tracking-wide">You're moving to the valley...</p>
                     <p className="text-sm text-gray-700 tracking-wide line-clamp-10">
@@ -163,30 +166,23 @@ function GameInfoPage(){
                 <img src="/bestSellersImages/stardewvalley.avif" alt="" className="aspect-video rounded-lg"/>
             </section>
 
-            {/* System Requirements */}
-            <section className="flex flex-col gap-5 px-4">
-
-                {/* Game Tags */}
-                <div className="flex flex-col gap-3">
-                    <h2 className="text-xl font-semibold text-gray-700 tracking-wide">Related tags</h2>
-                    <div className="flex flex-wrap gap-2">
-                        {gameTags.map((tag, index) => {
-                            return <p key={index} className="px-2 py-1 text-sm font-bold bg-gray-100 text-gray-700 rounded-md">{tag}</p>
-                        })}
-                    </div>
-
-                    <button className="flex items-center gap-2 text-red-600"> 
-                        <i className='bx bx-plus-medical text-lg'></i>
-                        <p className="text-sm font-bold">Show more</p>
-                    </button>
+            {/* Related Tags */}
+            <section className="flex flex-col gap-3 px-4">
+                <h2 className="text-xl font-semibold text-gray-700 tracking-wide">Related tags</h2>
+                <div className="flex flex-wrap gap-2">
+                    {gameTags.map((tag, index) => {
+                        return <p key={index} className="px-2 py-1 text-sm font-bold bg-gray-100 text-gray-700 rounded-md">{tag}</p>
+                    })}
                 </div>
 
-
+                <button className="flex items-center gap-2 py-2 text-red-600"> 
+                    <i className='bx bx-plus-medical text-lg'></i>
+                    <p className="text-sm font-bold">Show more</p>
+                </button>
             </section>
 
-            {/* fix this section */}
             {/* About this item */}
-            <div className="flex flex-col gap-3 text-gray-700">
+            <div className="flex flex-col gap-3 pt-4 text-gray-700">
                 <h2 className="px-4 text-xl font-semibold text-gray-700 tracking-wide">About this item</h2>
                 
                 <div className="">
@@ -268,7 +264,7 @@ function GameInfoPage(){
 
                     {/* System */}
                     <div className="border-t border-gray-300 flex items-start gap-4 px-4 py-6">
-                        <i className='bx bx-plus-medical text-4xl' ></i>
+                        <i className='bx bxs-speaker text-4xl' ></i>
 
                         <div className="flex flex-col gap-1">
                             <h3 className="text-lg font-semibold text-gray-700 tracking-wide">System</h3>
@@ -348,13 +344,13 @@ function GameInfoPage(){
                         <h3 className="text-sm font-semibold text-gray-700 tracking-wide">About the Number of Players</h3>
                         <p className="text-xs">1-4 with online multiplayer functionality</p>
                     </div>
-
                 </div>
 
             </div>
 
             <DigitalSectionComp data={bestSellersData} title="More like this" />
 
+            {/* Fine Print */}
             <p className="px-4 pt-12 text-[10px] text-gray-800">
                 WARNING: If you have epilepsy or have had seizures or other unusual reactions to flashing lights or patterns, consult a doctor before playing video games. All users should read the Health and Safety Information available in the system settings before using this software.<br /><br />
                 Nintendo Switch Online membership (sold separately) and Nintendo Account required for online play. Not available in all countries. Internet access required for online features. Terms apply. nintendo.com/online<br /><br />
