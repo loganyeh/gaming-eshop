@@ -50,150 +50,187 @@ function GameInfoPage(){
             <Header data={headerData} />
 
             {/* Shipping Header */}
-            <section className="flex justify-center py-4 text-xs text-center bg-gray-100 text-gray-700 tracking-wide">
-                <p className="font-light">
-                    <span className="font-semibold">Free shipping</span> on orders $50 or more. <span className="font-semibold underline">Restrictions<br /> apply.</span>
+            <section className="flex justify-center md:gap-2.5 py-3.5 text-xs text-center bg-gray-100 text-gray-700 tracking-wide">
+                <p className="hidden md:inline"><i className='bx bxs-truck text-2xl text-red-600' ></i></p>
+                <p className="font-light md:text-base">
+                    <span className="font-semibold">Free shipping</span> on orders $50 or more. <span className="font-semibold underline">Restrictions<br className="md:hidden" /> apply.</span>
                 </p>
             </section>
 
-            {/* Page Paths */}
-            <section className="flex items-center gap-1 p-3 text-xs font-semibold">
-                <p className="text-gray-500">Store</p>
-                <i className='bx bx-chevron-right text-xl text-gray-300' ></i>
-                <p className="text-gray-500">Games</p>
-                <i className='bx bx-chevron-right text-xl text-gray-300' ></i>
-                <p className="text-gray-600">Stardew Valley</p>
-            </section>
-
-            {/* Game Image Slideshow */}
-            <section className="">
-                <img src="/bestSellersImages/stardewvalley.avif" alt="" className="object-cover object-center aspect-video"/>
-
-                {/* Game Preview Images */}
-                <div className="flex gap-3 px-1 py-2 overflow-x-auto scroll-smooth">
-                    {Array.from({ length: 8}).map((_, index) => {
-                        return <div key={index} className="h-10 aspect-video bg-blue-300 rounded-lg">
-
-                                </div>
-                    })}
+            {/* Game Price Info */}
+            <section className="md:px-10 md:pt-3 md:pb-12 md:shadow-lg">
+                {/* Page Paths */}
+                <div className="flex items-center gap-1 p-3 text-xs md:text-sm font-semibold">
+                    <p className="text-gray-500">Store</p>
+                    <i className='bx bx-chevron-right text-xl text-gray-300' ></i>
+                    <p className="text-gray-500">Games</p>
+                    <i className='bx bx-chevron-right text-xl text-gray-300' ></i>
+                    <p className="text-gray-600">Stardew Valley</p>
                 </div>
-            </section>
 
-            {/* Game Description */}
-            <section className="flex flex-col gap-4 p-4 py-6 shadow-lg">
-                <h2 className="text-xl font-semibold text-gray-800 tracking-wide">Stardew Valley</h2>
+                <div className="md:flex md:gap-12">
 
-                 <p className="text-xs font-semibold text-gray-800">Select a version</p>
-                 
-                 {/* Game Version */}
-                 <div className="flex flex-wrap gap-3 ">
-                    {versionData.map((option, _) => {
-                        return <label key={option.id} htmlFor="" className="border-2 border-gray-300 flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-gray-800 rounded-lg">
-                                <input type="radio" name="game-version" className="accent-red-600" /> 
-                                {option.option}
-                            </label>
-                    })}
-                 </div>
+                    {/* Left Side */}
+                    {/* Game Image Slideshow */}
+                    <div className="md:flex md:flex-col md:gap-5 md:w-96">
+                        <div>
+                            <img src="/bestSellersImages/stardewvalley.avif" alt="" className="object-cover object-center aspect-video md:rounded-xl"/>
 
-                 <p className="text-xs font-semibold text-red-600 tracking-wide underline">Whats an upgrade pack?</p>
+                            {/* Game Preview Images */}
+                            <div className="flex gap-3 px-1 py-2 overflow-x-auto scroll-smooth">
+                                {Array.from({ length: 8}).map((_, index) => {
+                                    return <div key={index} className="h-10 aspect-video bg-blue-300 rounded-lg">
 
-                {/* Edition/Digital */}
-                 <div className="flex text-xs text-gray-800">
-                    <p className="px-3.5 py-2 font-semibold">Edition</p>
-                    <p className="px-3.5 py-2 bg-gray-100 rounded">Digital</p>
-                 </div>
+                                            </div>
+                                })}
+                            </div>
+                        </div>
 
-                {/* Price & Favorite */}
-                 <div className="flex justify-between">
-                    <p className="text-xl font-semibold text-gray-700">$14.99</p>
-                    <i className='bx bx-heart text-3xl text-red-600' ></i>
-                 </div>
+                        {/* ESRB RATING */}
+                        <div className="hidden md:flex items-center h-[72px]">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1920px-ESRB_Everyone.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="" className="h-full object-cover object-center" />
 
-                {/* ESRB RATING */}
-                <div className="flex items-center h-[72px]">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1920px-ESRB_Everyone.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="" className="h-full object-cover object-center" />
+                            <div className="p-1 text-xs font-medium text-gray-600"> 
+                                <p className="border-b p-1">Fantasy Violence, Mild Blood, Mild Language, Simulated Gambling, Use of Alcohol, Use of Tobacco</p>
+                                <p className="p-1 ">Users Interact</p>
+                            </div>
+                        </div>
 
-                    <div className="p-1 text-xs font-medium text-gray-600"> 
-                        <p className="border-b p-1">Fantasy Violence, Mild Blood, Mild Language, Simulated Gambling, Use of Alcohol, Use of Tobacco</p>
-                        <p className="p-1 ">Users Interact</p>
+                        {/* Nintendo Switch 2 Compabitlity Information */}
+                        <div className="hidden md:flex items-center gap-2.5 p-3 bg-gray-100 shadow rounded-md">
+                            <i className='bx bxs-check-circle text-2xl text-blue-600' ></i>
+                            
+                            <p className="text-xs text-gray-700">
+                                <span className="font-semibold">Nintendo Switch 2 Compatibility Information</span><br />
+                                <span className="font-light">Supported – Game behavior is consistent with Nintendo Switch.</span>
+                            </p>
+                        </div>
+
                     </div>
-                </div>
 
-                {/* Download Button */}
-                <button className="flex justify-center items-center gap-4 py-3.5 bg-red-600 text-white rounded-md">
-                    <i className='bx bx-download text-2xl' ></i>
-                    <p className="font-semibold text-lg tracking-wider">Direct Download</p>
-                </button>
+                    {/* Right Side */}
+                    {/* Game Description */}
+                    <section className="flex flex-col gap-4 p-4 py-6 md:p-0 shadow-lg md:shadow-none">
+                        <h2 className="text-xl md:text-3xl font-semibold text-gray-700 tracking-wide">Stardew Valley</h2>
 
-                <p className="text-[10px] text-gray-600">This item will be sent to your system automatically after purchase</p>
+                        <p className="text-xs font-semibold text-gray-800">Select a version</p>
+                        
+                        {/* Game Version */}
+                        <div className="flex flex-wrap gap-3 ">
+                            {versionData.map((option, _) => {
+                                return <label key={option.id} htmlFor="" className="border-2 border-gray-300 flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-gray-800 rounded-lg">
+                                        <input type="radio" name="game-version" className="accent-red-600" /> 
+                                        {option.option}
+                                    </label>
+                            })}
+                        </div>
 
-                {/* Fine Print Info */}
-                <div className="flex items-center gap-2.5 p-3 bg-gray-100 shadow rounded-md">
-                    <i className='bx bxs-check-circle text-xl text-blue-600' ></i>
-                    
-                    <p className="text-[10px] text-gray-700">
-                        <span className="font-semibold">Nintendo Switch 2 Compatibility Information</span><br />
-                        <span className="font-light">Supported – Game behavior is consistent with Nintendo Switch.</span>
-                    </p>
+                        <p className="text-xs font-semibold text-red-600 tracking-wide underline">Whats an upgrade pack?</p>
+
+                        {/* Edition/Digital */}
+                        <div className="flex text-xs text-gray-800">
+                            <p className="px-3.5 py-2 font-semibold">Edition</p>
+                            <p className="px-3.5 py-2 bg-gray-100 rounded">Digital</p>
+                        </div>
+
+                        {/* Price & Favorite */}
+                        <div className="flex justify-between">
+                            <p className="text-xl md:text-3xl font-semibold text-gray-700">$14.99</p>
+                            <i className='bx bx-heart text-3xl text-red-600' ></i>
+                        </div>
+
+                        {/* ESRB RATING */}
+                        <div className="flex items-center md:hidden h-[72px]">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1920px-ESRB_Everyone.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="" className="h-full object-cover object-center" />
+
+                            <div className="p-1 text-xs font-medium text-gray-600"> 
+                                <p className="border-b p-1">Fantasy Violence, Mild Blood, Mild Language, Simulated Gambling, Use of Alcohol, Use of Tobacco</p>
+                                <p className="p-1 ">Users Interact</p>
+                            </div>
+                        </div>
+
+                        {/* Download Button */}
+                        <button className="flex justify-center items-center gap-4 py-3.5 md:py-5 bg-red-600 text-white rounded-md">
+                            <i className='bx bx-download text-2xl' ></i>
+                            <p className="font-semibold text-lg md:text-xl tracking-wider">Direct Download</p>
+                        </button>
+
+                        <p className="text-[10px] md:text-xs text-gray-600">This item will be sent to your system automatically after purchase</p>
+
+                        {/* Nintendo Switch 2 Compabitlity Information */}
+                        <div className="flex items-center gap-2.5 md:hidden p-3 bg-gray-100 shadow rounded-md">
+                            <i className='bx bxs-check-circle text-xl text-blue-600' ></i>
+                            
+                            <p className="text-[10px] text-gray-700">
+                                <span className="font-semibold">Nintendo Switch 2 Compatibility Information</span><br />
+                                <span className="font-light">Supported – Game behavior is consistent with Nintendo Switch.</span>
+                            </p>
+                        </div>
+                    </section>
+
                 </div>
 
             </section>
 
             {/* Game Blurb */}
-            <section className="flex flex-col gap-3 px-4 pt-16 pb-14">
+            <section className="flex flex-col md:flex-row md:items-start gap-3 md:gap-6 px-4 pt-16 pb-14 md:py-24">
                 <div className="flex flex-col gap-3">
-                    <p className="text-lg font-bold text-gray-700 tracking-wide">You're moving to the valley...</p>
-                    <p className="text-sm text-gray-700 tracking-wide line-clamp-10">
-                        You’ve inherited your grandfather’s old farm plot in Stardew Valley. 
-                        Armed with hand-me-down tools and a few coins, you set out to begin your new life. 
-                        Can you learn to live off the land and turn these overgrown fields into a thriving home? 
-                        It won’t be easy. Ever since Joja Corporation came to town, the old ways of life have all
-                        but disappeared. The community center, once the town’s most vibrant hub of activity, 
-                        now lies in shambles. But the valley seems full of opportunity. With a little dedication, 
-                        you might just be the one to restore Stardew Valley to greatness!
-                    </p>
+                    <div className="flex flex-col gap-3">
+                        <p className="text-lg md:text-xl font-bold text-gray-700 tracking-wide">You're moving to the valley...</p>
+                        <p className="text-sm md:text-base text-gray-700 tracking-wide line-clamp-10">
+                            You’ve inherited your grandfather’s old farm plot in Stardew Valley. 
+                            Armed with hand-me-down tools and a few coins, you set out to begin your new life. 
+                            Can you learn to live off the land and turn these overgrown fields into a thriving home? 
+                            It won’t be easy. Ever since Joja Corporation came to town, the old ways of life have all
+                            but disappeared. The community center, once the town’s most vibrant hub of activity, 
+                            now lies in shambles. But the valley seems full of opportunity. With a little dedication, 
+                            you might just be the one to restore Stardew Valley to greatness!
+                        </p>
+                    </div>
+
+                    <button className="flex items-center gap-2 px-2 md:px-0 text-red-600"> 
+                        <i className='bx bx-plus-medical text-xl'></i>
+                        <p className="text-lg font-bold">Read more</p>
+                    </button>
+
+                    <p className="text-[10px] md:text-xs text-gray-700">Software description provided by the publisher.</p>
+
+                    <button className="py-3 text-base md:text-lg font-medium md:font-semibold bg-red-600 text-white tracking-wide rounded-md">Explore this game's official website</button>
                 </div>
 
-                <button className="flex items-center gap-2 px-2 text-red-600"> 
-                    <i className='bx bx-plus-medical text-xl'></i>
-                    <p className="text-lg font-bold">Read more</p>
-                </button>
-
-                <p className="text-[10px] text-gray-700">Software description provided by the publisher.</p>
-
-                <button className="py-3 text-base font-medium bg-red-600 text-white tracking-wide rounded-md">Explore this game's official website</button>
-
-                <img src="/bestSellersImages/stardewvalley.avif" alt="" className="mt-4 aspect-video rounded-lg"/>
+                <img src="/bestSellersImages/stardewvalley.avif" alt="" className="md:w-[350px] mt-4 md:mt-0 aspect-video object-cover object-center rounded-lg"/>
             </section>
 
             {/* Related Tags */}
             <section className="flex flex-col gap-3 px-4">
-                <h2 className="text-xl font-semibold text-gray-700 tracking-wide">Related tags</h2>
-                <div className="flex flex-wrap gap-2">
+                <h2 className="text-xl md:text-3xl font-semibold text-gray-700 tracking-wide">Related tags</h2>
+                <div className="flex flex-wrap gap-2 md:gap-3">
                     {gameTags.map((tag, index) => {
                         return <p key={index} className="px-2 py-1 text-sm font-bold bg-gray-100 text-gray-700 rounded-md">{tag}</p>
                     })}
                 </div>
 
-                <button className="flex items-center gap-2 py-2 text-red-600"> 
+                <button className="md:hidden flex items-center gap-2 py-2 text-red-600"> 
                     <i className='bx bx-plus-medical text-lg'></i>
                     <p className="text-sm font-bold">Show more</p>
                 </button>
             </section>
 
             {/* About this item */}
-            <div className="flex flex-col gap-3 pt-4 text-gray-700">
-                <h2 className="px-4 text-xl font-semibold text-gray-700 tracking-wide">About this item</h2>
+            <div className="border flex flex-col gap-3 pt-4 text-gray-700">
+                <h2 className="px-4 text-xl md:text-3xl font-semibold text-gray-700 tracking-wide">About this item</h2>
                 
                 <div className="">
+
                     {/* Game File Size */}
-                    <div className="border-t border-gray-300 flex items-start gap-4 px-4 py-6">
+                    <div className="border border-red-600 flex items-start gap-4 px-4 py-6">
+                    {/* <div className="border-t border-gray-300 flex items-start gap-4 px-4 py-6"> */}
                         <i className='bx bxs-data text-4xl' ></i>
 
-                        <div className="flex flex-col gap-1">
-                            <h3 className="text-lg font-semibold text-gray-700 tracking-wide">Game file size</h3>
+                        <div className="flex flex-col md:flex-row md:items-center gap-1 md:w-full">
+                            <h3 className="text-lg md:text-xl font-semibold text-gray-700 tracking-wide">Game file size</h3>
 
-                            <div className="flex flex-col gap-4 text-sm font-light tracking-wide">
+                            <div className="flex flex-col md:flex-row md:justify-center md:flex-1 gap-4 text-sm md:text-base font-light tracking-wide">
                                 <p>Nintendo Switch: 1.5 GB</p>
                                 <p>Nintendo Switch 2: 2.2 GB</p>
                             </div>
