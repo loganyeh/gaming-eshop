@@ -140,7 +140,7 @@ function GameInfoPage(){
             </section>
 
             {/* Game Blurb */}
-            <section className="flex flex-col gap-5 px-4 pt-16 pb-14">
+            <section className="flex flex-col gap-3 px-4 pt-16 pb-14">
                 <div className="flex flex-col gap-3">
                     <p className="text-lg font-bold text-gray-700 tracking-wide">You're moving to the valley...</p>
                     <p className="text-sm text-gray-700 tracking-wide line-clamp-10">
@@ -163,7 +163,7 @@ function GameInfoPage(){
 
                 <button className="py-3 text-base font-medium bg-red-600 text-white tracking-wide rounded-md">Explore this game's official website</button>
 
-                <img src="/bestSellersImages/stardewvalley.avif" alt="" className="aspect-video rounded-lg"/>
+                <img src="/bestSellersImages/stardewvalley.avif" alt="" className="mt-4 aspect-video rounded-lg"/>
             </section>
 
             {/* Related Tags */}
