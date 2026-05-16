@@ -1,8 +1,12 @@
+// Components
 import Header from "../components/HomePageComponents/Header";
 import Footer from "../components/HomePageComponents/Footer";
+import DigitalSectionComp from "../components/HomePageComponents/DigitalSectionComp";
+import GameInfo from "../components/GameInfoPageComponents/GameInfo";
+
+// Data
 import { headerData } from "../data/HomePageData/headerData";
 import { footerData } from "../data/HomePageData/FooterData";
-import DigitalSectionComp from "../components/HomePageComponents/DigitalSectionComp";
 import { bestSellersData } from "../data/HomePageData/DigitalData";
 
 function GameInfoPage(){
@@ -220,167 +224,134 @@ function GameInfoPage(){
             <div className="border flex flex-col gap-3 pt-4 text-gray-700">
                 <h2 className="px-4 text-xl md:text-3xl font-semibold text-gray-700 tracking-wide">About this item</h2>
                 
+                {/* About Item Container */}
                 <div className="">
+                    <GameInfo boxicon="bx bxs-data" title="Game file size" text={["Nintendo Switch: 1.5 GB", "Nintendo Switch 2: 2.2 GB"]} />
 
-                    {/* Game File Size */}
-                    <div className="border border-red-600 flex items-start gap-4 px-4 py-6">
-                    {/* <div className="border-t border-gray-300 flex items-start gap-4 px-4 py-6"> */}
-                        <i className='bx bxs-data text-4xl' ></i>
+                    {/* Supported Play Modes */}
+                    <div className="border-t border-gray-300 flex flex-col md:flex-row items-center md:mx-4 md:py-6 text-gray-700 tracking-wide">
+                        {/* Left Side */}
+                        <div className="flex md:items-center gap-3 px-3 py-6 w-full md:max-w-72">
+                            <i className={`bx bx-tv text-4xl`} ></i>
 
-                        <div className="flex flex-col md:flex-row md:items-center gap-1 md:w-full">
-                            <h3 className="text-lg md:text-xl font-semibold text-gray-700 tracking-wide">Game file size</h3>
+                            <div className="flex flex-col gap-3 w-full">
+                                <p className="md:text-lg font-bold">Supported play modes</p>
 
-                            <div className="flex flex-col md:flex-row md:justify-center md:flex-1 gap-4 text-sm md:text-base font-light tracking-wide">
-                                <p>Nintendo Switch: 1.5 GB</p>
-                                <p>Nintendo Switch 2: 2.2 GB</p>
+                                {/* Mobile */}
+                                <div className="md:hidden flex flex-wrap gap-5">
+                                    {Array.from({ length: 3}).map((mode, index) => {
+                                        return <div key={index} className="flex flex-col items-center">
+                                                    <i className='bx bx-tv text-3xl' ></i>
+                                                    <p className="text-sm">Tabletop mode</p>
+                                                </div>
+                                    })}
+                                </div>
+
+                                {/* Mobile */}
+                                <p className="md:hidden text-[10px]">Software compatibility and play experience may differ on Nintendo Switch Lite. Additional accessories may be required(sold separately). See support for details.</p>
                             </div>
+
                         </div>
-                    </div>
-
-                    {/* Supported play modes */}
-                    <div className="border-t border-gray-300 flex items-start gap-4 px-4 py-6">
-                        <i className='bx bx-camera text-4xl' ></i>
-
-                        <div className="flex flex-col gap-3">
-                            <h3 className="text-lg font-semibold text-gray-700 tracking-wide">Supported play modes</h3>
-
-                            <div className="w-fit flex flex-wrap gap-6">
-                                {playModes.map((playmode, _) => {
-                                    return <div key={playmode.id} className="flex flex-col gap-0.5 items-center">
-                                                <i className={`${playmode.boxicon}`} ></i>
-                                                <p className="text-sm text-gray-700">{playmode.text} mode</p>
+                        
+                        {/* Tablet Breakpoint++ */}
+                        {/* Right Side */}
+                        <div className="hidden md:flex flex-col flex-1 items-start gap-4">
+                            <div className="hidden md:flex flex-wrap gap-5">
+                                {Array.from({ length: 3}).map((mode, index) => {
+                                    return <div key={index} className="flex flex-col items-center">
+                                                <i className='bx bx-tv text-3xl' ></i>
+                                                <p className="text-sm">Tabletop mode</p>
                                             </div>
                                 })}
                             </div>
-
-                            <p className="text-[10px]">Software compatibility and play experience may differ on Nintendo Switch Lite. Additional accessories may be required(sold separately). See support for details.</p>
+                            <p className="text-xs">Software compatibility and play experience may differ on Nintendo Switch Lite. Additional accessories may be required(sold separately). See support for details.</p>
                         </div>
                     </div>
 
-                    {/* Nintendo Account */}
-                    <div className="border-t border-gray-300 flex items-start gap-4 px-4 py-6">
-                        <i className='bx bxs-smile text-4xl' ></i>
+                    <GameInfo boxicon="bx bxs-smile" title="Nintendo Account family-group lending" text={["Supported"]} />
+                    <GameInfo boxicon="bx bx-plus-medical" title="Genre" underlineText={["Action", "Simulation"]} />
 
-                        <div className="flex flex-col gap-1">
-                            <h3 className="text-lg font-semibold text-gray-700 tracking-wide">Nintendo Account family-group lending</h3>
-                            <p className="text-sm font-light tracking-wide">Supported</p>
-                        </div>
-                    </div>
+                    {/* Nintendo Switch Online */}
+                    <div className="border-t border-gray-300 flex flex-col md:flex-row items-center md:mx-4 md:py-5 text-gray-700 tracking-wide">
+                        {/* Left Side */}
+                        <div className="flex md:items-center gap-3 px-3 py-6 w-full md:max-w-72">
+                            <i className={`bx bxs-square text-4xl text-red-600`} ></i>
 
-                    {/* Genre */}
-                    <div className="border-t border-gray-300 flex items-start gap-4 px-4 py-6">
-                        <i className='bx bx-plus-medical text-4xl' ></i>
+                            <div className="flex flex-col gap-2 w-full">
+                                <p className="md:text-lg font-bold">Nintendo Switch Online</p>
 
-                        <div className="flex flex-col gap-1">
-                            <h3 className="text-lg font-semibold text-gray-700 tracking-wide">Genre</h3>
+                                {/* Mobile */}
+                                <div className="md:hidden flex gap-4">
+                                    <p className="border-b-2 border-red-600 w-fit text-sm font-bold text-red-600">Online Play</p>
+                                    <p className="border-b-2 border-red-600 w-fit text-sm font-bold text-red-600">Save Data Cloud</p>
+                                </div>
 
-                            <div className="flex gap-5 text-sm font-semibold text-red-600 tracking-wide">
-                                <p className="border-b-2 border-red-600">Action</p>
-                                <p className="border-b-2 border-red-600">Supported</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Online */}
-                    <div className="border-t border-gray-300 flex items-start gap-4 px-4 py-6">
-                        <i className='bx bxs-checkbox text-4xl text-red-600' ></i>
-
-                        <div className="flex flex-col gap-2">
-                            <h3 className="text-lg font-semibold text-gray-700 tracking-wide">Nintendo Switch Online</h3>
-
-                            <div className="flex gap-5 text-sm font-semibold text-red-600 tracking-wide">
-                                <p className="border-b-2 border-red-600">Online Play</p>
-                                <p className="border-b-2 border-red-600">Save Data Cloud</p>
+                                <p className="md:hidden block text-[10px]">
+                                    Play online, access classic NES™ and Super NES™ games, and more with a Nintendo Switch Online membership. <span className="border-b-2 border-red-600 font-bold text-red-600">Learn more</span>
+                                </p>
                             </div>
 
-                            <p className="text-[10px]">Play online, access classic NES™ and Super NES™ games, and more with a Nintendo Switch Online membership.</p>
-
-                            <p className="border-b-2 border-red-600 w-fit text-[10px] font-semibold text-red-600">Learn more</p>
                         </div>
-                    </div>
-
-                    {/* System */}
-                    <div className="border-t border-gray-300 flex items-start gap-4 px-4 py-6">
-                        <i className='bx bxs-speaker text-4xl' ></i>
-
-                        <div className="flex flex-col gap-1">
-                            <h3 className="text-lg font-semibold text-gray-700 tracking-wide">System</h3>
-
-                            <p className="border-b-2 border-red-600 w-fit text-sm font-semibold text-red-600 tracking-wide">Nintendo Switch</p>
-                        </div>
-                    </div>
-
-                    {/* Publisher */}
-                    <div className="border-t border-gray-300 flex items-start gap-4 px-4 py-6">
-                        <i className='bx bxs-building text-4xl' ></i>
-
-                        <div className="flex flex-col gap-1">
-                            <h3 className="text-lg font-semibold text-gray-700 tracking-wide">Publisher</h3>
-
-                            <p className="w-fit border-b-2 border-red-600 text-sm font-semibold text-red-600 tracking-wide">ConcernedApe</p>
-                        </div>
-                    </div>
-
-                    {/* Developer */}
-                    <div className="border-t border-gray-300 flex items-start gap-4 px-4 py-6">
-                        <i className='bx bxs-wrench text-4xl' ></i>
-
-                        <div className="flex flex-col gap-1">
-                            <h3 className="text-lg font-semibold text-gray-700 tracking-wide">Developer</h3>
-
-                            <p className="border-b-2 border-red-600 w-fit text-sm font-semibold text-red-600 tracking-wide">ConcernedApe</p>
-                        </div>
-                    </div>
-
-                    {/* Supported languages */}
-                    <div className="border-t border-gray-300 flex items-start gap-4 px-4 py-6">
-                        <i className='bx bx-globe text-4xl' ></i>
-
-                        <div className="flex flex-col gap-1">
-                            <h3 className="text-lg font-semibold text-gray-700 tracking-wide">Supported languages</h3>
-
-                            <p className="text-sm">
-                                Japanese, French, German, Italian, Spanish, Korean, Portuguese, 
-                                Russian, Simplified Chinese, Latin American Spanish, 
-                                Traditional Chinese, American English
+                        
+                        {/* Tablet Breakpoint++ */}
+                        {/* Right Side */}
+                        <div className="hidden md:flex flex-col gap-3">
+                            <div className="flex gap-4">
+                                <p className="border-b-2 border-red-600 font-bold text-red-600">Online Play</p>
+                                <p className="border-b-2 border-red-600 font-bold text-red-600">Save Data Cloud</p>
+                            </div>
+                            
+                            <p className="block text-xs">
+                                Play online, access classic NES™ and Super NES™ games, and more with a Nintendo Switch Online membership. <span className="border-b-2 border-red-600 font-bold text-red-600">Learn more</span>
                             </p>
                         </div>
+
                     </div>
 
-                    {/* Release date */}
-                    <div className="border-t border-gray-300 flex items-start gap-4 px-4 py-6">
-                        <i className='bx bxs-calendar-alt text-4xl' ></i>
-
-                        <div className="flex flex-col gap-1">
-                            <h3 className="text-lg font-semibold text-gray-700 tracking-wide">Release date</h3>
-                            <time className="block text-sm">October 5, 2017</time>
-                        </div>
-                    </div>
+                    <GameInfo boxicon="bx bxs-video" title="System" underlineText={["Nintendo Switch"]} />
+                    <GameInfo boxicon="bx bxs-building" title="Publisher" underlineText={["ConcernedApe"]} />
+                    <GameInfo boxicon="bx bxs-wrench" title="Developer" underlineText={["ConcernedApe"]} />
+                    <GameInfo boxicon="bx bx-globe" title="Supported Languages" text={["Japanese, French, German, Italian, Spanish, Korean, Portuguese, Russian, Simplified Chinese, Latin American Spanish, Traditional Chinese, American English"]} />
+                    <GameInfo boxicon="bx bxs-calendar" title="Release date" text={["October 5, 2017"]} />
 
                     {/* ESRB Rating */}
-                    <div className="border-t border-gray-300 flex items-start gap-4 px-4 py-6">
-                        <i className='bx bxs-cog text-4xl' ></i>
+                    <div className="border-t border-gray-300 flex flex-col md:flex-row items-center md:mx-4 md:py-5 text-gray-700 tracking-wide">
+                        {/* Left Side */}
+                        <div className="flex md:items-center gap-3 px-3 py-6 w-full md:max-w-72">
+                            <i className={`bx bxs-cog text-4xl`} ></i>
 
-                        <div className="flex flex-col gap-2">
-                            <h3 className="text-lg font-semibold text-gray-700 tracking-wide">ESRB rating</h3>
-                            
-                            <div className="flex items-center h-[72px]">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/ESRB_Everyone.svg/1920px-ESRB_Everyone.svg.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" alt="" className="border h-full object-cover object-center" />
+                            <div className="flex flex-col gap-2 w-full">
+                                <p className="md:text-lg font-bold">ESRB Rating</p>
 
-                                <div className="p-1 text-xs font-medium text-gray-600"> 
-                                    <p className="border-b p-1">Fantasy Violence, Mild Blood, Mild Language, Simulated Gambling, Use of Alcohol, Use of Tobacco</p>
-                                    <p className="p-1 ">Users Interact</p>
+                                {/* Mobile */}
+                                <div className="md:hidden flex items-center">
+                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx-xPOFLIGukFjyaHvPjs_A6Hl2Q1El8qG2Q&s" alt="" className="w-12 aspect-[3/4]"/>
+
+                                    <div className="flex flex-col gap-1 p-2 text-[10px]">
+                                        <p className="border-b border-gray-700 pb-1">Fantasy Violence, Mild Blood, Mild Language, Simulated Gambling, Use of Alcohol, Use of Tobacco</p>
+                                        <p>Users Interact</p>
+                                    </div>
                                 </div>
                             </div>
-
                         </div>
-                    </div>
+                        
+                        {/* Tablet Breakpoint++ */}
+                        {/* Right Side */}
+                        <div className="hidden md:flex items-center">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx-xPOFLIGukFjyaHvPjs_A6Hl2Q1El8qG2Q&s" alt="" className="w-14 aspect-[3/4]"/>
 
-                    {/* Number of players */}
-                    <div className="border-t border-gray-300 flex flex-col gap-0.5 px-4 py-10">
-                        <h3 className="text-sm font-semibold text-gray-700 tracking-wide">About the Number of Players</h3>
-                        <p className="text-xs">1-4 with online multiplayer functionality</p>
+                            <div className="flex flex-col gap-1 p-2">
+                                <p className="border-b border-gray-700 pb-1 text-xs">Fantasy Violence, Mild Blood, Mild Language, Simulated Gambling, Use of Alcohol, Use of Tobacco</p>
+                                <p className="text-xs">Users Interact</p>
+                            </div>
+                        </div>
+
                     </div>
+                </div>
+
+                <div className="p-4 py-16">
+                    <p className="text-sm md:text-base font-bold">About the Number of Players</p>
+                    <p className="text-xs md:text-sm">1-4 with online multiplayer functionality</p>
                 </div>
 
             </div>
